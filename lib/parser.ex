@@ -134,18 +134,18 @@ defmodule Parser do
     []
   end
 
-  def parse(value, :object_id) do
-    case value do
-      %BSON.ObjectId{} = value ->
-        value
+  #def parse(value, :object_id) do
+  #  case value do
+  #    %BSON.ObjectId{} = value ->
+  #      value
 
-      value when is_binary(value) ->
-        BSON.ObjectId.decode!(value)
+  #    value when is_binary(value) ->
+  #      BSON.ObjectId.decode!(value)
 
-      _ ->
-        nil
-    end
-  end
+  #    _ ->
+  #      nil
+  #  end
+  #end
 
   def parse(map, {:struct, module}) when is_map(map) do
     Enum.reduce(module.__meta__, struct(module), fn {name, {type, opts}}, acc ->
