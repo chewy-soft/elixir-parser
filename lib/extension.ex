@@ -14,6 +14,7 @@ defmodule Extension do
         end
 
       signature = {name, [], args}
+      IO.inspect(args)
 
       quote do
         defdelegate unquote(signature), to: unquote(module)
